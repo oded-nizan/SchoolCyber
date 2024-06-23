@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f4f0959-94e7-4e68-95de-8f8055dfb30d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/SchoolCyber.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+    <list default="true" id="3f4f0959-94e7-4e68-95de-8f8055dfb30d" name="Changes" comment="A commit after finishing the project but yet tested it.">
+      <change afterPath="$PROJECT_DIR$/homework.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,8 +82,17 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1719155145758</updated>
-      <workItem from="1719155146255" duration="2750000" />
+      <workItem from="1719155146255" duration="2981000" />
     </task>
+    <task id="LOCAL-00001" summary="A commit after finishing the project but yet tested it.">
+      <option name="closed" value="true" />
+      <created>1719158008790</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1719158008790</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -108,5 +111,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="A commit after finishing the project but yet tested it." />
+    <option name="LAST_COMMIT_MESSAGE" value="A commit after finishing the project but yet tested it." />
   </component>
 </project>

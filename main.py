@@ -107,7 +107,7 @@ def excersie_4(exercises_file: str, solutions_file: str) -> None:
             num2: int = int(sections[2])
 
             # calculate the solution base on operation
-            result: int
+            result: float
             if operation == '+':
                 result = num1 + num2
             elif operation == '-':
