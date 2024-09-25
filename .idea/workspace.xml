@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f4f0959-94e7-4e68-95de-8f8055dfb30d" name="Changes" comment="A commit after finishing the project but yet tested it.">
-      <change afterPath="$PROJECT_DIR$/Homework-15.09.24/string1_solution.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Homework-15.09.24/string2_solution.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/SchoolCyber.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SchoolCyber.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="3f4f0959-94e7-4e68-95de-8f8055dfb30d" name="Changes" comment="Added All Homework and Amended Structure">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework.txt" beforeDir="false" afterPath="$PROJECT_DIR$/SummerProjects/homework.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/SummerProjects/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/solutions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/SummerProjects/solutions.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework-15.09.24/string2_solution.py" beforeDir="false" afterPath="$PROJECT_DIR$/Homework-15.09.24/string2_solution.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +54,12 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Oded\Documents\SchoolCyber" />
+      <recent name="C:\Users\Oded\Documents\SchoolCyber\SummerProjects" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="SchoolCyber" />
@@ -102,7 +102,7 @@
       <option name="presentableId" value="Default" />
       <updated>1719155145758</updated>
       <workItem from="1719155146255" duration="2981000" />
-      <workItem from="1727290570944" duration="365000" />
+      <workItem from="1727290570944" duration="826000" />
     </task>
     <task id="LOCAL-00001" summary="A commit after finishing the project but yet tested it.">
       <option name="closed" value="true" />
@@ -112,7 +112,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719158008790</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added All Homework and Amended Structure">
+      <option name="closed" value="true" />
+      <created>1727291136572</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1727291136572</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -132,6 +140,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="A commit after finishing the project but yet tested it." />
-    <option name="LAST_COMMIT_MESSAGE" value="A commit after finishing the project but yet tested it." />
+    <MESSAGE value="Added All Homework and Amended Structure" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added All Homework and Amended Structure" />
   </component>
 </project>
