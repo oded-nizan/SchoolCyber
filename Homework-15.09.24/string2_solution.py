@@ -39,7 +39,7 @@ def not_bad(s):
     bad_index: int = s.find("bad")
     if not_index != -1 and bad_index != -1 and not_index < bad_index:
         to_replace: str = s[not_index:bad_index + 3]
-        s = s.replace(to_replace, "good")
+        s = s.replace(to_replace, "good", 1)
     return s
 
 
