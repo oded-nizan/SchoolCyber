@@ -46,8 +46,12 @@ import sys
 # and builds and returns a word/count dict for it.
 # Then print_words() and print_top() can just call the utility function.
 
-def count_words(text) -> dict:
+def count_words(filename: str) -> dict:
     word_count: dict = dict()
+
+    with open(filename, 'r') as file:
+        text = file.read().replace('\n', '')
+
     for word in text.split():
         if word.lower() not in word_count:
             word_count[word.lower()] = 1
@@ -57,8 +61,8 @@ def count_words(text) -> dict:
     return word_count
 
 
-def print_words(text) -> None:
-    word_count: dict = count_words(text)
+def print_words(filename: str) -> None:
+    word_count: dict = count_words(filename)
     sorted_word_count_list: list[tuple] = sorted(word_count.items(), key=lambda x: x[0], reverse=False)
 
     # print the sorted dict
@@ -66,8 +70,8 @@ def print_words(text) -> None:
         print(f'{word}: {count}')
 
 
-def print_top(text) -> None:
-    word_count: dict = count_words(text)
+def print_top(filename: str) -> None:
+    word_count: dict = count_words(filename)
     sorted_word_count_list: list[tuple] = sorted(word_count.items(), key=lambda x: x[1], reverse=True)
 
     # print the sorted dict up to 20 most common words
@@ -86,18 +90,14 @@ def print_top(text) -> None:
 
 def main():
     if len(sys.argv) != 3:
-        print('Usage: python wordcount_small_solution.py <textfile> <count | topcount>')
+        print('Usage: python wordcount_small_solution.py {--count | --topcount} <textfile>')
     else:
-        # open text file to string variable
-        text_file = sys.argv[1]
-        with open(text_file, 'r') as file:
-            text = file.read().replace('\n', '')
-
-        option = sys.argv[2]
-        if option == 'count':
-            print_words(text)
-        elif option == 'topcount':
-            print_top(text)
+        filename = sys.argv[2]
+        option = sys.argv[1]
+        if option == '--count':
+            print_words(filename)
+        elif option == '--topcount':
+            print_top(filename)
         else:
             print('Invalid option')
             sys.exit(1)
