@@ -90,7 +90,7 @@ def print_top(filename: str) -> None:
 
 def main():
     if len(sys.argv) != 3:
-        print('Usage: python wordcount_small_solution.py {--count | --topcount} <textfile>')
+        print('Usage: python wordcount_full_solution.py {--count | --topcount} <textfile>')
     else:
         filename = sys.argv[2]
         option = sys.argv[1]
