@@ -59,25 +59,20 @@ def count_words(text) -> dict:
 
 def print_words(text) -> None:
     word_count: dict = count_words(text)
-    words: list = list(word_count.keys())
-    words.sort()
-    sorted_word_count: dict = {word: word_count[word] for word in words}
+    sorted_word_count_list: list[tuple] = sorted(word_count.items(), key=lambda x: x[0], reverse=False)
 
     # print the sorted dict
-    for (word, count) in sorted_word_count.items():
+    for (word, count) in sorted_word_count_list:
         print(f'{word}: {count}')
 
 
 def print_top(text) -> None:
     word_count: dict = count_words(text)
     sorted_word_count_list: list[tuple] = sorted(word_count.items(), key=lambda x: x[1], reverse=True)
-    sorted_word_count: dict = {}
-    for (word, count) in sorted_word_count_list:
-        sorted_word_count[word] = count
 
     # print the sorted dict up to 20 most common words
     i: int = 0
-    for (word, count) in sorted_word_count.items():
+    for (word, count) in sorted_word_count_list:
         print(f'{word}: {count}')
         i += 1
         if i >= 20:
@@ -90,61 +85,22 @@ def print_top(text) -> None:
 # calls the print_words() and print_top() functions which you must define.
 
 def main():
-    global some_text
-  
-    option = input("Enter sort type [count | topcount]:")
-  
-    if option == 'count':
-        print_words(some_text)
-    elif option == 'topcount':
-        print_top(some_text)
+    if len(sys.argv) != 3:
+        print('Usage: python wordcount_small_solution.py <textfile> <count | topcount>')
     else:
-        print('unknown option: ' + option)
-        sys.exit(1)
+        # open text file to string variable
+        text_file = sys.argv[1]
+        with open(text_file, 'r') as file:
+            text = file.read().replace('\n', '')
 
-
-some_text = """
-Alice's Adventures in Wonderland
-
-                ALICE'S ADVENTURES IN WONDERLAND
-
-                          Lewis Carroll
-
-               THE MILLENNIUM FULCRUM EDITION 3.0
-
-
-
-
-                            CHAPTER I
-
-                      Down the Rabbit-Hole
-
-
-  Alice was beginning to get very tired of sitting by her sister
-on the bank, and of having nothing to do:  once or twice she had
-peeped into the book her sister was reading, but it had no
-pictures or conversations in it, `and what is the use of a book,'
-thought Alice `without pictures or conversation?'
-
-  So she was considering in her own mind (as well as she could,
-for the hot day made her feel very sleepy and stupid), whether
-the pleasure of making a daisy-chain would be worth the trouble
-of getting up and picking the daisies, when suddenly a White
-Rabbit with pink eyes ran close by her.
-
-  There was nothing so VERY remarkable in that; nor did Alice
-think it so VERY much out of the way to hear the Rabbit say to
-itself, `Oh dear!  Oh dear!  I shall be late!'  (when she thought
-it over afterwards, it occurred to her that she ought to have
-wondered at this, but at the time it all seemed quite natural);
-but when the Rabbit actually TOOK A WATCH OUT OF ITS WAISTCOAT-
-POCKET, and looked at it, and then hurried on, Alice started to
-her feet, for it flashed across her mind that she had never
-before seen a rabbit with either a waistcoat-pocket, or a watch to
-take out of it, and burning with curiosity, she ran across the
-field after it, and fortunately was just in time to see it pop
-down a large rabbit-hole under the hedge.
-"""
+        option = sys.argv[2]
+        if option == 'count':
+            print_words(text)
+        elif option == 'topcount':
+            print_top(text)
+        else:
+            print('Invalid option')
+            sys.exit(1)
 
 
 if __name__ == '__main__':
