@@ -50,7 +50,7 @@ def count_words(filename: str) -> dict:
     word_count: dict = dict()
 
     with open(filename, 'r') as file:
-        text = file.read().replace('\n', '')
+        text = file.read()
 
     for word in text.split():
         if word.lower() not in word_count:

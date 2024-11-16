@@ -1,4 +1,3 @@
-__author__ = "Oded Nizan"
 
 
 # exercise 1
