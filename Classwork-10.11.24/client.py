@@ -10,6 +10,10 @@ def main() -> None:
     data: str = my_socket.recv(1024).decode()
     print(f'The server sent the following data: {data}')
 
+    my_socket.send('Who is your favorite student'.encode())
+    data_2: str = my_socket.recv(1024).decode()
+    print(f'The server sent the following data: {data_2}')
+
     my_socket.close()
 
 
