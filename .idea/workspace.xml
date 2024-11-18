@@ -4,15 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f4f0959-94e7-4e68-95de-8f8055dfb30d" name="Changes" comment="using argv for 29 hw updated filename">
-      <change afterPath="$PROJECT_DIR$/Homework-10.11.24/client.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Homework-10.11.24/protocol.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Homework-10.11.24/server.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/SchoolCyber.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SchoolCyber.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="3f4f0959-94e7-4e68-95de-8f8055dfb30d" name="Changes" comment="homework from last lesson on 10-11-24">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Classwork-10.11.24/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/Classwork-10.11.24/client.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Classwork-10.11.24/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/Classwork-10.11.24/server.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +48,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Python.client.executor": "Run",
     "Python.server.executor": "Run",
     "Python.string2_solution.executor": "Run",
     "Python.wordcount_small_solution.executor": "Run",
@@ -80,7 +74,30 @@
       <recent name="C:\Users\Oded\Documents\SchoolCyber\SummerProjects" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.server">
+  <component name="RunManager" selected="Python.client">
+    <configuration name="client" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="SchoolCyber" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Homework-10.11.24" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Homework-10.11.24/client.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="SchoolCyber" />
       <option name="ENV_FILES" value="" />
@@ -175,12 +192,14 @@
     </configuration>
     <list>
       <item itemvalue="Python.main" />
+      <item itemvalue="Python.client" />
       <item itemvalue="Python.server" />
       <item itemvalue="Python.string2_solution" />
       <item itemvalue="Python.wordcount_full_solution" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.client" />
         <item itemvalue="Python.server" />
         <item itemvalue="Python.wordcount_full_solution" />
         <item itemvalue="Python.string2_solution" />
@@ -286,7 +305,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730568065886</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="homework from last lesson on 10-11-24">
+      <option name="closed" value="true" />
+      <created>1731765534002</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1731765534002</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -314,10 +341,13 @@
     <MESSAGE value="using argv for 29 hw" />
     <MESSAGE value="using argv for 29 hw updated" />
     <MESSAGE value="using argv for 29 hw updated filename" />
-    <option name="LAST_COMMIT_MESSAGE" value="using argv for 29 hw updated filename" />
+    <MESSAGE value="homework from last lesson on 10-11-24" />
+    <option name="LAST_COMMIT_MESSAGE" value="homework from last lesson on 10-11-24" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/SchoolCyber$client.coverage" NAME="client Coverage Results" MODIFIED="1731765459790" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Homework-10.11.24" />
     <SUITE FILE_PATH="coverage/SchoolCyber$wordcount_small_solution.coverage" NAME="wordcount_small_solution Coverage Results" MODIFIED="1730567935834" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Homework-29.09.24" />
     <SUITE FILE_PATH="coverage/SchoolCyber$string2_solution.coverage" NAME="string2_solution Coverage Results" MODIFIED="1729977992176" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Homework-15.09.24" />
+    <SUITE FILE_PATH="coverage/SchoolCyber$server.coverage" NAME="server Coverage Results" MODIFIED="1731765456535" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Homework-10.11.24" />
   </component>
 </project>
