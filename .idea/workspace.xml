@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f4f0959-94e7-4e68-95de-8f8055dfb30d" name="Changes" comment="homework from last lesson on 10-11-24">
+    <list default="true" id="3f4f0959-94e7-4e68-95de-8f8055dfb30d" name="Changes" comment="final sync">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -88,7 +88,6 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Homework-10.11.24/client.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -305,15 +304,23 @@
       <option name="project" value="LOCAL" />
       <updated>1730568065886</updated>
     </task>
-    <task id="LOCAL-00010" summary="homework from last lesson on 10-11-24">
+    <task id="LOCAL‎-00010" summary="hopefully fixed merge">
       <option name="closed" value="true" />
-      <created>1731765534002</created>
+      <created>1731852938336</created>
       <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1731765534002</updated>
+      <option name="presentableId" value="LOCAL‎-00010" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1731852938336</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL‎-00011" summary="final sync">
+      <option name="closed" value="true" />
+      <created>1731853006608</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL‎-00011" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1731853006608</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -341,13 +348,13 @@
     <MESSAGE value="using argv for 29 hw" />
     <MESSAGE value="using argv for 29 hw updated" />
     <MESSAGE value="using argv for 29 hw updated filename" />
-    <MESSAGE value="homework from last lesson on 10-11-24" />
-    <option name="LAST_COMMIT_MESSAGE" value="homework from last lesson on 10-11-24" />
+    <MESSAGE value="attempting to fix merge problems" />
+    <MESSAGE value="hopefully fixed merge" />
+    <MESSAGE value="final sync" />
+    <option name="LAST_COMMIT_MESSAGE" value="final sync" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/SchoolCyber$client.coverage" NAME="client Coverage Results" MODIFIED="1731765459790" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Homework-10.11.24" />
     <SUITE FILE_PATH="coverage/SchoolCyber$wordcount_small_solution.coverage" NAME="wordcount_small_solution Coverage Results" MODIFIED="1730567935834" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Homework-29.09.24" />
     <SUITE FILE_PATH="coverage/SchoolCyber$string2_solution.coverage" NAME="string2_solution Coverage Results" MODIFIED="1729977992176" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Homework-15.09.24" />
-    <SUITE FILE_PATH="coverage/SchoolCyber$server.coverage" NAME="server Coverage Results" MODIFIED="1731765456535" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Homework-10.11.24" />
   </component>
 </project>
