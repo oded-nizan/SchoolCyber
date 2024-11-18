@@ -3,6 +3,8 @@ import protocol2
 
 IP: str = '192.168.68.75'
 SAVED_PHOTO_LOCATION: str = r'C:\Users\Oded\Pictures\Screenshots\screenshot.jpg'  # The path + filename where the
+
+
 # copy of the screenshot at the client should be saved
 
 
@@ -13,8 +15,13 @@ def handle_server_response(my_socket: socket, cmd: str) -> None:
     Note-special attention should be given to SEND_PHOTO as it requires and extra receive
     """
     # (8) treat all responses except SEND_PHOTO
-
+    response_length: int = int(my_socket.recv(protocol2.LENGTH_FIELD_SIZE).decode())
+    server_response: str = my_socket.recv(response_length).decode()
+    if cmd != 'SEND_PHOTO':
+        print(f'Server has responded with:\n{server_response}')
     # (10) treat SEND_PHOTO
+    else:
+        pass
 
 
 def main() -> None:
@@ -30,8 +37,8 @@ def main() -> None:
     # loop until user requested to exit
     while True:
         cmd: str = input("Please enter command:\n")
-        if protocol_solution.check_cmd(cmd):
-            packet: bytes = protocol_solution.create_msg(cmd)
+        if protocol2.check_cmd(cmd):
+            packet: bytes = protocol2.create_msg(cmd)
             my_socket.send(packet)
             handle_server_response(my_socket, cmd)
             if cmd == 'EXIT':
@@ -39,6 +46,8 @@ def main() -> None:
         else:
             print("Not a valid command, or missing parameters\n")
 
+    # close socket
+    print("Closing connection")
     my_socket.close()
 
 

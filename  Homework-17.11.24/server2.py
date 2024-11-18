@@ -6,10 +6,8 @@ import subprocess
 import shutil
 import pyautogui
 
-
-
 IP: str = '192.168.68.75'
-PHOTO_PATH: str = r'C:\Users\Oded\Pictures\Screenshots\screenshot.jpg' # The path + filename where the screenshot at the server should be saved
+PHOTO_PATH: str = r'C:\Users\Oded\Pictures\Screenshots\screenshot.jpg'  # The path + filename where the screenshot at the server should be saved
 
 
 def check_client_request(cmd: str) -> tuple[bool, str, list[str]]:
@@ -37,9 +35,9 @@ def check_client_request(cmd: str) -> tuple[bool, str, list[str]]:
         next_index = cmd[index + 1:].find(' ')
         if next_index == -1:
             end_loop = True
-            param: str = cmd[index+1:]
+            param: str = cmd[index + 1:]
         else:
-            param: str = cmd[index+1:next_index]
+            param: str = cmd[index + 1:next_index]
         params.append(param)
         index = next_index
         if end_loop:
@@ -63,7 +61,7 @@ def handle_client_request(command: str, params: list[str]) -> str:
         response: the requested data
 
     """
-    response: str = ''
+    response: str
     match command:
         case 'DIR':
             response = command_dir(params[0])
@@ -76,10 +74,9 @@ def handle_client_request(command: str, params: list[str]) -> str:
         case 'TAKE_SCREENSHOT':
             response = command_take_screenshot()
         case 'SEND_PHOTO':
-
-
-
-
+            response = command_send_photo()
+        case _:
+            response = f'Something went wrong while attempting to execute command: {command}'
     # (7)
     return response
 
@@ -100,7 +97,8 @@ def command_copy(param1: str, param2: str) -> str:
     path1: str = fr'{param1}'
     path2: str = fr'{param2}'
     shutil.copy(path1, path2)
-    return 'OK' if os.path.isfile(path2) else f'Something went wrong while attempting to coppy file: {param1} to file: {param2}'
+    return 'OK' if os.path.isfile(
+        path2) else f'Something went wrong while attempting to coppy file: {param1} to file: {param2}'
 
 
 def command_execute(param: str) -> str:
@@ -112,7 +110,12 @@ def command_execute(param: str) -> str:
 def command_take_screenshot() -> str:
     image = pyautogui.screenshot()
     image.save(PHOTO_PATH)
-    return 'OK' if os.path.isfile(PHOTO_PATH) else f'Something went wrong while attempting to take a screenshot and save it to: {PHOTO_PATH}'
+    return 'OK' if os.path.isfile(
+        PHOTO_PATH) else f'Something went wrong while attempting to take a screenshot and save it to: {PHOTO_PATH}'
+
+
+def command_send_photo() -> str:
+    return ''
 
 
 def main():
@@ -142,9 +145,9 @@ def main():
                 client_socket.send(msg)
                 if command == 'SEND_FILE':
                     # Send the data itself to the client
-
+                    pass
                     # (9)
-                
+
                 if command == 'EXIT':
                     break
             else:
@@ -168,6 +171,8 @@ def main():
 
     # close sockets
     print("Closing connection")
+    client_socket.close()
+    server_socket.close()
 
 
 if __name__ == '__main__':

@@ -8,7 +8,7 @@ def check_cmd(data: str) -> bool:
     For example, DELETE c:\work\file.txt is good, but DELETE alone is not
     """
     if data == 'TAKE_SCREENSHOT' or data == 'EXIT' or data == 'SEND_PHOTO':
-            return True
+        return True
     if data[:3] == 'DIR':
         if data[3] == ' ' and len(data) > 4:
             return True
