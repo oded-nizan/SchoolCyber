@@ -1,5 +1,5 @@
 import socket
-import protocol
+import protocol2
 import glob
 import os
 import subprocess
@@ -8,11 +8,11 @@ import pyautogui
 
 
 
-IP: str = '?.?.?.?'
-PHOTO_PATH: str = '????' # The path + filename where the screenshot at the server should be saved
+IP: str = '192.168.68.75'
+PHOTO_PATH: str = r'C:\Users\Oded\Pictures\Screenshots\screenshot.jpg' # The path + filename where the screenshot at the server should be saved
 
 
-def check_client_request(cmd: str):
+def check_client_request(cmd: str) -> tuple[bool, str, list[str]]:
     """
     Break cmd to command and parameters
     Check if the command and params are good.
@@ -25,9 +25,9 @@ def check_client_request(cmd: str):
         params: List of the cmd params (ex. ["c:\\cyber"])
     """
     # Use protocol.check_cmd first
-    valid_cmd_protocol: bool = protocol.check_cmd(cmd)
+    valid_cmd_protocol: bool = protocol2.check_cmd(cmd)
     if not valid_cmd_protocol:
-        return False, cmd, ''
+        return False, cmd, []
     index: int = cmd.find(' ')
     stripped_cmd: str = cmd[:index]
     params: list[str] = []
@@ -46,14 +46,14 @@ def check_client_request(cmd: str):
             break
     # Then make sure the params are valid
     for param in params:
-        if stripped_cmd == :
+        if not (stripped_cmd == 'DIR' and os.path.isdir(param)) or (stripped_cmd != 'DIR' and os.path.isfile(param)):
             return False, stripped_cmd, params
     # (6)
 
     return True, stripped_cmd, params
 
 
-def handle_client_request(command, params):
+def handle_client_request(command: str, params: list[str]) -> str:
     """Create the response to the client, given the command is legal and params are OK
 
     For example, return the list of filenames in a directory
@@ -63,17 +63,62 @@ def handle_client_request(command, params):
         response: the requested data
 
     """
+    response: str = ''
+    match command:
+        case 'DIR':
+            response = command_dir(params[0])
+        case 'DELETE':
+            response = command_delete(params[0])
+        case 'COPY':
+            response = command_copy(params[0], params[1])
+        case 'EXECUTE':
+            response = command_execute(params[0])
+        case 'TAKE_SCREENSHOT':
+            response = command_take_screenshot()
+        case 'SEND_PHOTO':
+
+
+
 
     # (7)
-
-    response = 'OK'
     return response
+
+
+def command_dir(param: str) -> str:
+    path: str = fr'{param}\*.*'
+    dir_list: list[str] = glob.glob(path)
+    return ''.join(x + '\n' for x in dir_list)
+
+
+def command_delete(param: str) -> str:
+    path: str = fr'{param}'
+    os.remove(path)
+    return f'Something went wrong while attempting to delete file: {param}' if os.path.isfile(path) else 'OK'
+
+
+def command_copy(param1: str, param2: str) -> str:
+    path1: str = fr'{param1}'
+    path2: str = fr'{param2}'
+    shutil.copy(path1, path2)
+    return 'OK' if os.path.isfile(path2) else f'Something went wrong while attempting to coppy file: {param1} to file: {param2}'
+
+
+def command_execute(param: str) -> str:
+    path: str = fr'{param}'
+    subprocess.call(path)
+    return 'OK'
+
+
+def command_take_screenshot() -> str:
+    image = pyautogui.screenshot()
+    image.save(PHOTO_PATH)
+    return 'OK' if os.path.isfile(PHOTO_PATH) else f'Something went wrong while attempting to take a screenshot and save it to: {PHOTO_PATH}'
 
 
 def main():
     # open socket with client
     server_socket: socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    server_socket.bind(("0.0.0.0", protocol.PORT))
+    server_socket.bind(("0.0.0.0", protocol2.PORT))
     server_socket.listen()
     print("Server is up and running")
     (client_socket, client_address) = server_socket.accept()
@@ -83,20 +128,18 @@ def main():
     # handle requests until user asks to exit
     while True:
         # Check if protocol is OK, e.g. length field OK
-        valid_protocol, cmd = protocol.get_msg(client_socket)
+        valid_protocol, cmd = protocol2.get_msg(client_socket)
         if valid_protocol:
             # Check if params are good, e.g. correct number of params, file name exists
             valid_cmd, command, params = check_client_request(cmd)
             if valid_cmd:
-
                 # (6)
-
                 # prepare a response using "handle_client_request"
-
+                response = handle_client_request(cmd, params)
                 # add length field using "create_msg"
-
+                msg: bytes = protocol2.create_msg(response)
                 # send to client
-
+                client_socket.send(msg)
                 if command == 'SEND_FILE':
                     # Send the data itself to the client
 
@@ -106,13 +149,19 @@ def main():
                     break
             else:
                 # prepare proper error to client
-                response = 'Bad command or parameters'
+                response: str = 'Bad command or parameters'
+                # add length field using "create_msg"
+                msg: bytes = protocol2.create_msg(response)
                 # send to client
+                client_socket.send(msg)
 
         else:
             # prepare proper error to client
-            response = 'Packet not according to protocol'
-            #send to client
+            response: str = 'Packet not according to protocol'
+            # add length field using "create_msg"
+            msg: bytes = protocol2.create_msg(response)
+            # send to client
+            client_socket.send(msg)
 
             # Attempt to clean garbage from socket
             client_socket.recv(1024)

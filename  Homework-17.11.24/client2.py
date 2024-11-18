@@ -1,11 +1,12 @@
 import socket
-import protocol
+import protocol2
+
+IP: str = '192.168.68.75'
+SAVED_PHOTO_LOCATION: str = r'C:\Users\Oded\Pictures\Screenshots\screenshot.jpg'  # The path + filename where the
+# copy of the screenshot at the client should be saved
 
 
-IP: str = '?.?.?.?'
-SAVED_PHOTO_LOCATION: str = '????' # The path + filename where the copy of the screenshot at the client should be saved
-
-def handle_server_response(my_socket: socket, cmd: str):
+def handle_server_response(my_socket: socket, cmd: str) -> None:
     """
     Receive the response from the server and handle it, according to the request
     For example, DIR should result in printing the contents to the screen,
@@ -16,10 +17,10 @@ def handle_server_response(my_socket: socket, cmd: str):
     # (10) treat SEND_PHOTO
 
 
-def main():
+def main() -> None:
     # open socket with the server
     my_socket: socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    my_socket.connect(("127.0.0.1", protocol.PORT))
+    my_socket.connect(("127.0.0.1", protocol2.PORT))
     # (2)
 
     # print instructions
@@ -30,7 +31,7 @@ def main():
     while True:
         cmd: str = input("Please enter command:\n")
         if protocol_solution.check_cmd(cmd):
-            packet = protocol_solution.create_msg(cmd)
+            packet: bytes = protocol_solution.create_msg(cmd)
             my_socket.send(packet)
             handle_server_response(my_socket, cmd)
             if cmd == 'EXIT':
@@ -39,6 +40,7 @@ def main():
             print("Not a valid command, or missing parameters\n")
 
     my_socket.close()
+
 
 if __name__ == '__main__':
     main()

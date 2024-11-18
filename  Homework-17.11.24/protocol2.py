@@ -2,7 +2,7 @@ LENGTH_FIELD_SIZE = 4
 PORT = 8820
 
 
-def check_cmd(data: str):
+def check_cmd(data: str) -> bool:
     """
     Check if the command is defined in the protocol, including all parameters
     For example, DELETE c:\work\file.txt is good, but DELETE alone is not
@@ -26,7 +26,7 @@ def check_cmd(data: str):
     return False
 
 
-def create_msg(data: str):
+def create_msg(data: str) -> bytes:
     """
     Create a valid protocol message, with length field
     """
@@ -37,7 +37,7 @@ def create_msg(data: str):
     return msg.encode()
 
 
-def get_msg(my_socket):
+def get_msg(my_socket) -> tuple[bool, str]:
     """
     Extract message from protocol, without the length field
     If length field does not include a number, returns False, "Error"
