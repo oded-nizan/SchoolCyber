@@ -1,5 +1,6 @@
-LENGTH_FIELD_SIZE = 4
-PORT = 8820
+LENGTH_FIELD_SIZE: int = 4
+PORT: int = 8820
+ACKNOWLEDGMENT: str = 'Ready to receive photo'
 
 
 def check_cmd(data: str) -> bool:

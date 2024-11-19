@@ -7,7 +7,8 @@ import shutil
 import pyautogui
 
 IP: str = '192.168.68.75'
-PHOTO_PATH: str = r'C:\Users\Oded\Pictures\Screenshots\screenshot.jpg'  # The path + filename where the screenshot at the server should be saved
+PHOTO_PATH: str = r'C:\Users\Oded\Pictures\Screenshots\screenshot.jpg'  # The path + filename where the screenshot at
+# the server should be saved
 
 
 def check_client_request(cmd: str) -> tuple[bool, str, list[str]]:
@@ -115,13 +116,26 @@ def command_take_screenshot() -> str:
 
 
 def command_send_photo() -> str:
-    return ''
+    photo_length: int = os.path.getsize(PHOTO_PATH)
+    return str(photo_length)
+
+
+def send_photo(client_socket: socket) -> None:
+    # receive acknowledgment
+    valid, msg = protocol2.get_msg(client_socket)
+    client_socket.recv(1024)
+    if valid and msg == protocol2.ACKNOWLEDGMENT:
+        # Send the data itself to the client
+        with open(PHOTO_PATH, 'rb') as f:
+            client_socket.send(f.read())
+    else:
+        client_socket.send(protocol2.create_msg('Something went wrong'))
 
 
 def main():
     # open socket with client
     server_socket: socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    server_socket.bind(("0.0.0.0", protocol2.PORT))
+    server_socket.bind((IP, protocol2.PORT))
     server_socket.listen()
     print("Server is up and running")
     (client_socket, client_address) = server_socket.accept()
@@ -144,8 +158,7 @@ def main():
                 # send to client
                 client_socket.send(msg)
                 if command == 'SEND_FILE':
-                    # Send the data itself to the client
-                    pass
+                    send_photo(client_socket)
                     # (9)
 
                 if command == 'EXIT':

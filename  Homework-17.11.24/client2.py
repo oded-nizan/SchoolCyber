@@ -15,19 +15,39 @@ def handle_server_response(my_socket: socket, cmd: str) -> None:
     Note-special attention should be given to SEND_PHOTO as it requires and extra receive
     """
     # (8) treat all responses except SEND_PHOTO
-    response_length: int = int(my_socket.recv(protocol2.LENGTH_FIELD_SIZE).decode())
-    server_response: str = my_socket.recv(response_length).decode()
+    valid_protocol, server_response = protocol2.get_msg(my_socket)
+    if not valid_protocol:
+        print('Invalid protocol from server response')
+        return None
     if cmd != 'SEND_PHOTO':
         print(f'Server has responded with:\n{server_response}')
     # (10) treat SEND_PHOTO
     else:
-        pass
+        send_acknowledgment(my_socket)
+        receive_photo(my_socket, int(server_response))
+
+
+def send_acknowledgment(my_socket: socket) -> None:
+    acknowledgment: str = protocol2.ACKNOWLEDGMENT
+    msg: bytes = protocol2.create_msg(acknowledgment)
+    my_socket.send(msg)
+
+
+def receive_photo(my_socket: socket, file_size: int) -> None:
+    with open(SAVED_PHOTO_LOCATION, 'wb') as file:
+        bytes_received: int = 0
+        while bytes_received < file_size:
+            chunk: bytes = my_socket.recv(1024)
+            if not chunk:  # an empty byte string in python is considered falsely
+                break
+            file.write(chunk)
+            bytes_received += len(chunk)
 
 
 def main() -> None:
     # open socket with the server
     my_socket: socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    my_socket.connect(("127.0.0.1", protocol2.PORT))
+    my_socket.connect((IP, protocol2.PORT))
     # (2)
 
     # print instructions
