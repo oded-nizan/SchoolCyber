@@ -1,7 +1,7 @@
 import socket
 import protocol2
 
-IP: str = '192.168.68.75'
+IP: str = '127.0.0.1'
 SAVED_PHOTO_LOCATION: str = r'C:\Users\Oded\Pictures\Screenshots\screenshot.jpg'  # The path + filename where the
 
 
@@ -57,6 +57,7 @@ def main() -> None:
     # loop until user requested to exit
     while True:
         cmd: str = input("Please enter command:\n")
+        cmd = fr'{cmd}'
         if protocol2.check_cmd(cmd):
             packet: bytes = protocol2.create_msg(cmd)
             my_socket.send(packet)
