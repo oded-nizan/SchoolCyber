@@ -8,6 +8,8 @@ import pyautogui
 
 IP: str = '0.0.0.0'
 PHOTO_PATH: str = r'C:\Users\Oded\Pictures\Screenshots\screenshot.jpg'  # The path + filename where the screenshot at
+
+
 # the server should be saved
 
 
@@ -25,31 +27,31 @@ def check_client_request(cmd: str) -> tuple[bool, str, list[str]]:
     """
     # Use protocol.check_cmd first
     valid_cmd_protocol: bool = protocol2.check_cmd(cmd)
-    print(f'protocol command validity: {valid_cmd_protocol}')
     index: int = cmd.find(' ')
-    print(f'first space index: {index}')
-    no_params: bool = cmd == 'TAKE_SCREENSHOT' or cmd == 'EXIT' or cmd == 'SEND_PHOTO'
-    if not valid_cmd_protocol or (index == -1 and not no_params):
-        return False, cmd, []
-    if no_params:
-        return True, cmd, []
-    params: list[str] = [cmd[index + 1:]]
-    print(f'params: {params}')
+    if index == -1:
+        no_params: bool = cmd == 'TAKE_SCREENSHOT' or cmd == 'EXIT' or cmd == 'SEND_PHOTO'
+        if not valid_cmd_protocol or not no_params:
+            return False, cmd, []
+        if no_params:
+            return True, cmd, []
+    params: list[str] = []
     stripped_cmd: str = cmd[:index]
-    print(f'stripped cmd: {stripped_cmd}')
     if stripped_cmd == 'DIR' or stripped_cmd == 'EXECUTE' or stripped_cmd == 'DELETE':
-        if (stripped_cmd == 'DIR' and os.path.isdir(params[0])) or os.path.isfile(params[0]):
+        params.append(cmd[index + 1:])
+        if (stripped_cmd == 'DIR' and os.path.isdir(params[0])) or stripped_cmd == 'EXECUTE' or os.path.isfile(
+                params[0]):
             return True, stripped_cmd, params
         else:
             return False, stripped_cmd, params
-    index = cmd[index + 1:].find(' ')
-    if index == -1:
-        return False, cmd, params
-    params.append(cmd[index + 1:])
-    # Then make sure the params are valid
-    for param in params:
-        if not (stripped_cmd == 'DIR' and os.path.isdir(param)) or (stripped_cmd != 'DIR' and os.path.isfile(param)):
-            return False, stripped_cmd, params
+    second_index: int = cmd.find(' ', index + 1)
+    if second_index == -1:
+        return False, stripped_cmd, params
+    print(index, second_index)
+    params.append(cmd[index + 1 : second_index])
+    params.append(cmd[second_index + 1:])
+    if not os.path.isfile(params[0]) or not os.path.isfile(params[0]):
+        print(params)
+        return False, stripped_cmd, params
     # (6)
 
     return True, stripped_cmd, params
@@ -79,6 +81,8 @@ def handle_client_request(command: str, params: list[str]) -> str:
             response = command_take_screenshot()
         case 'SEND_PHOTO':
             response = command_send_photo()
+        case 'EXIT':
+            response = 'Exiting communication...'
         case _:
             response = f'Something went wrong while attempting to execute command: {command}'
     # (7)
@@ -102,12 +106,15 @@ def command_copy(param1: str, param2: str) -> str:
     path2: str = fr'{param2}'
     shutil.copy(path1, path2)
     return 'OK' if os.path.isfile(
-        path2) else f'Something went wrong while attempting to coppy file: {param1} to file: {param2}'
+        path2) else f'Something went wrong while attempting to copy file: {param1} to file: {param2}'
 
 
 def command_execute(param: str) -> str:
     path: str = fr'{param}'
-    subprocess.call(path)
+    try:
+        subprocess.call(path)
+    except Exception as e:
+        return f'Something went wrong while attempting to execute: {path}\nException is {e}'
     return 'OK'
 
 
@@ -143,6 +150,9 @@ def main():
     print("Server is up and running")
     (client_socket, client_address) = server_socket.accept()
     print("Client connected")
+    connection_msg: bytes = protocol2.create_msg('Server is connected')
+    client_socket.send(connection_msg)
+
     # (1)
 
     # handle requests until user asks to exit
@@ -150,11 +160,9 @@ def main():
         # Check if protocol is OK, e.g. length field OK
         valid_protocol, cmd = protocol2.get_msg(client_socket)
         if valid_protocol:
-            print('Valid protocol')
             # Check if params are good, e.g. correct number of params, file name exists
             valid_cmd, command, params = check_client_request(cmd)
             if valid_cmd:
-                print('Valid command')
                 # (6)
                 # prepare a response using "handle_client_request"
                 response: str = handle_client_request(command, params)

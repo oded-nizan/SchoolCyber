@@ -49,6 +49,5 @@ def get_msg(my_socket) -> tuple[bool, str]:
         return False, 'Error'
     length: int = int(msg_length)
     msg: str = my_socket.recv(length).decode()
-    print(f'Got msg: {msg}')
     # (5)
     return True, msg

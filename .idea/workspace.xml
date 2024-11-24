@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f4f0959-94e7-4e68-95de-8f8055dfb30d" name="Changes" comment="added readme file" />
+    <list default="true" id="3f4f0959-94e7-4e68-95de-8f8055dfb30d" name="Changes" comment="finished Homework-17.11.24 before testing">
+      <change beforePath="$PROJECT_DIR$/.idea/SchoolCyber.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SchoolCyber.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework-17.11.24/client2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Homework-17.11.24/client2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework-17.11.24/protocol2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Homework-17.11.24/protocol2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework-17.11.24/server2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Homework-17.11.24/server2.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,11 +60,13 @@
     "Python.server2 (1).executor": "Run",
     "Python.server2.executor": "Debug",
     "Python.string2_solution.executor": "Run",
+    "Python.test.executor": "Run",
     "Python.wordcount_small_solution.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/Oded/Documents/SchoolCyber/Homework-10.11.24",
+    "last_opened_file_path": "C:/Users/User/roe/SchoolCyber",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -116,29 +125,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Homework-17.11.24/client2.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="client2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="SchoolCyber" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ Homework-17.11.24" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ Homework-17.11.24/client2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -216,11 +202,33 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="SchoolCyber" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.main" />
+      <item itemvalue="Python.test" />
       <item itemvalue="Python.client2 (1)" />
       <item itemvalue="Python.server2 (1)" />
-      <item itemvalue="Python.client2" />
       <item itemvalue="Python.server2" />
       <item itemvalue="Python.client" />
     </list>
@@ -228,8 +236,8 @@
       <list>
         <item itemvalue="Python.client2 (1)" />
         <item itemvalue="Python.server2 (1)" />
+        <item itemvalue="Python.test" />
         <item itemvalue="Python.server2" />
-        <item itemvalue="Python.client2" />
         <item itemvalue="Python.client" />
       </list>
     </recent_temporary>
@@ -237,8 +245,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-PY-241.18034.82" />
-        <option value="bundled-python-sdk-975db3bf15a3-2767605e8bc2-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-241.18034.82" />
+        <option value="bundled-python-sdk-fb887030ada0-aa17d162503b-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-243.21565.199" />
       </set>
     </attachedChunks>
   </component>
@@ -263,7 +270,7 @@
       <workItem from="1732031274407" duration="3909000" />
       <workItem from="1732179007327" duration="2409000" />
       <workItem from="1732270322859" duration="610000" />
-      <workItem from="1732433434510" duration="3357000" />
+      <workItem from="1732433434510" duration="3158000" />
     </task>
     <task id="LOCAL-00001" summary="A commit after finishing the project but yet tested it.">
       <option name="closed" value="true" />
@@ -393,23 +400,7 @@
       <option name="project" value="LOCAL" />
       <updated>1732035095393</updated>
     </task>
-    <task id="LOCAL-00017" summary="Starting to fix bugs with latest homework 17.11.24">
-      <option name="closed" value="true" />
-      <created>1732456674755</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1732456674755</updated>
-    </task>
-    <task id="LOCAL-00018" summary="added readme file">
-      <option name="closed" value="true" />
-      <created>1732456750963</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1732456750963</updated>
-    </task>
-    <option name="localTasksCounter" value="19" />
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -444,13 +435,11 @@
     <MESSAGE value="continued working on next homework assignment for 17.11.24" />
     <MESSAGE value="updated with new xml file" />
     <MESSAGE value="finished Homework-17.11.24 before testing" />
-    <MESSAGE value="Starting to fix bugs with latest homework 17.11.24" />
-    <MESSAGE value="added readme file" />
-    <option name="LAST_COMMIT_MESSAGE" value="added readme file" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished Homework-17.11.24 before testing" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/SchoolCyber$client2__1_.coverage" NAME="client2 (1) Coverage Results" MODIFIED="1732456617138" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Homework-17.11.24" />
-    <SUITE FILE_PATH="coverage/SchoolCyber$server2__1_.coverage" NAME="server2 (1) Coverage Results" MODIFIED="1732456613054" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Homework-17.11.24" />
+    <SUITE FILE_PATH="coverage/SchoolCyber$client2__1_.coverage" NAME="client2 (1) Coverage Results" MODIFIED="1732456136129" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Homework-17.11.24" />
+    <SUITE FILE_PATH="coverage/SchoolCyber$server2__1_.coverage" NAME="server2 (1) Coverage Results" MODIFIED="1732456131228" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Homework-17.11.24" />
     <SUITE FILE_PATH="coverage/SchoolCyber$wordcount_small_solution.coverage" NAME="wordcount_small_solution Coverage Results" MODIFIED="1730567935834" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Homework-29.09.24" />
     <SUITE FILE_PATH="coverage/SchoolCyber$server2.coverage" NAME="server2 Coverage Results" MODIFIED="1732433474925" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ Homework-17.11.24" />
     <SUITE FILE_PATH="coverage/SchoolCyber$string2_solution.coverage" NAME="string2_solution Coverage Results" MODIFIED="1729977992176" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Homework-15.09.24" />
