@@ -48,6 +48,8 @@ def main() -> None:
     # open socket with the server
     my_socket: socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     my_socket.connect((IP, protocol2.PORT))
+    valid_msg, connection_msg = protocol2.get_msg(my_socket)
+    print(connection_msg)
     # (2)
 
     # print instructions
@@ -56,8 +58,8 @@ def main() -> None:
 
     # loop until user requested to exit
     while True:
-        cmd: str = input("Please enter command:\n")
-        cmd = fr'{cmd}'
+        cmd: str = r''.join(input("Please enter command:\n"))
+        print(cmd)
         if protocol2.check_cmd(cmd):
             packet: bytes = protocol2.create_msg(cmd)
             my_socket.send(packet)
