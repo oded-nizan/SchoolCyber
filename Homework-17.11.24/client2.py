@@ -59,7 +59,6 @@ def main() -> None:
     # loop until user requested to exit
     while True:
         cmd: str = r''.join(input("Please enter command:\n"))
-        print(cmd)
         if protocol2.check_cmd(cmd):
             packet: bytes = protocol2.create_msg(cmd)
             my_socket.send(packet)

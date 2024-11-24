@@ -28,8 +28,10 @@ def check_client_request(cmd: str) -> tuple[bool, str, list[str]]:
     # Use protocol.check_cmd first
     valid_cmd_protocol: bool = protocol2.check_cmd(cmd)
     index: int = cmd.find(' ')
+    print(index)
     if index == -1:
         no_params: bool = cmd == 'TAKE_SCREENSHOT' or cmd == 'EXIT' or cmd == 'SEND_PHOTO'
+        print(no_params)
         if not valid_cmd_protocol or not no_params:
             return False, cmd, []
         if no_params:
@@ -47,7 +49,7 @@ def check_client_request(cmd: str) -> tuple[bool, str, list[str]]:
     if second_index == -1:
         return False, stripped_cmd, params
     print(index, second_index)
-    params.append(cmd[index + 1 : second_index])
+    params.append(cmd[index + 1: second_index])
     params.append(cmd[second_index + 1:])
     if not os.path.isfile(params[0]) or not os.path.isfile(params[0]):
         print(params)
@@ -120,7 +122,9 @@ def command_execute(param: str) -> str:
 
 def command_take_screenshot() -> str:
     image = pyautogui.screenshot()
+    print(image)
     image.save(PHOTO_PATH)
+    print(os.path.isfile(PHOTO_PATH))
     return 'OK' if os.path.isfile(
         PHOTO_PATH) else f'Something went wrong while attempting to take a screenshot and save it to: {PHOTO_PATH}'
 
@@ -166,12 +170,11 @@ def main():
                 # (6)
                 # prepare a response using "handle_client_request"
                 response: str = handle_client_request(command, params)
-                print(response)
                 # add length field using "create_msg"
                 msg: bytes = protocol2.create_msg(response)
                 # send to client
                 client_socket.send(msg)
-                if command == 'SEND_FILE':
+                if command == 'SEND_PHOTO':
                     send_photo(client_socket)
                     # (9)
 
