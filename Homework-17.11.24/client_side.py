@@ -1,10 +1,11 @@
 # Imports
 import socket
-import protocol2
+from communications_protocol import PORT, ACKNOWLEDGMENT, check_cmd, create_msg, get_msg
+from os.path import isfile
 
 # Fixed variables
 IP: str = '127.0.0.1'
-SAVED_PHOTO_LOCATION: str = r'C:\Users\Oded\Pictures\Screenshots\screenshot_copy.jpg'  # The path + filename where the
+SAVED_PHOTO_LOCATION: str = r'C:\Users\Oded\Pictures\Screenshots\screenshot_copy.png'  # The path + filename where the
 # copy of the screenshot at the client should be saved
 
 
@@ -16,7 +17,7 @@ def handle_server_response(my_socket: socket, cmd: str) -> None:
     """
     # (8) treat all responses except SEND_PHOTO
     # Receive the server's response and check its validity per the communication's protocol
-    valid_protocol, server_response = protocol2.get_msg(my_socket)
+    valid_protocol, server_response = get_msg(my_socket)
     if not valid_protocol:
         print('Invalid protocol from server response')
         return None
@@ -31,8 +32,8 @@ def handle_server_response(my_socket: socket, cmd: str) -> None:
 
 # Send Acknowledgment to the server to communicate that the client is ready to receive the photo
 def send_acknowledgment(my_socket: socket) -> None:
-    acknowledgment: str = protocol2.ACKNOWLEDGMENT
-    msg: bytes = protocol2.create_msg(acknowledgment)
+    acknowledgment: str = ACKNOWLEDGMENT
+    msg: bytes = create_msg(acknowledgment)
     my_socket.send(msg)
 
 
@@ -47,13 +48,15 @@ def receive_photo(my_socket: socket, file_size: int) -> None:
                 break
             file.write(chunk)
             bytes_received += len(chunk)
+    if isfile(SAVED_PHOTO_LOCATION):
+        print('OK')
 
 
 def main() -> None:
     # open socket with the server
     my_socket: socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    my_socket.connect((IP, protocol2.PORT))
-    valid_msg, connection_msg = protocol2.get_msg(my_socket)
+    my_socket.connect((IP, PORT))
+    valid_msg, connection_msg = get_msg(my_socket)
     print(connection_msg)
     # (2)
 
@@ -64,8 +67,8 @@ def main() -> None:
     # loop until user requested to exit
     while True:
         cmd: str = r''.join(input("Please enter command:\n"))
-        if protocol2.check_cmd(cmd):
-            packet: bytes = protocol2.create_msg(cmd)
+        if check_cmd(cmd):
+            packet: bytes = create_msg(cmd)
             my_socket.send(packet)
             handle_server_response(my_socket, cmd)
             if cmd == 'EXIT':

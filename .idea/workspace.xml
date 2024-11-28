@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f4f0959-94e7-4e68-95de-8f8055dfb30d" name="Changes" comment="attempting to sync machines">
+    <list default="true" id="3f4f0959-94e7-4e68-95de-8f8055dfb30d" name="Changes" comment="finished testing all commands except TAKE_SCREENSHOT which fails due to python modules and interpreter issues">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Homework-17.11.24/client2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Homework-17.11.24/client2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Homework-17.11.24/protocol2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Homework-17.11.24/protocol2.py" afterDir="false" />
@@ -48,32 +48,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Python.client.executor": "Run",
-    "Python.client2 (1).executor": "Run",
-    "Python.client2.executor": "Run",
-    "Python.server.executor": "Run",
-    "Python.server2 (1).executor": "Run",
-    "Python.server2.executor": "Debug",
-    "Python.string2_solution.executor": "Run",
-    "Python.test.executor": "Run",
-    "Python.wordcount_small_solution.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/User/roe/SchoolCyber",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.intellij.pycharm.community.ide.impl.configuration.PythonContentEntriesConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Python.client.executor&quot;: &quot;Run&quot;,
+    &quot;Python.client2 (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.client2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.server.executor&quot;: &quot;Run&quot;,
+    &quot;Python.server2 (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.server2.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.string2_solution.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.wordcount_small_solution.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/roe/SchoolCyber&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.intellij.pycharm.community.ide.impl.configuration.PythonContentEntriesConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Oded\Documents\SchoolCyber\Homework-10.11.24" />
@@ -274,7 +274,8 @@
       <workItem from="1732433434510" duration="3158000" />
       <workItem from="1732479631871" duration="84000" />
       <workItem from="1732479721243" duration="849000" />
-      <workItem from="1732534858866" duration="5172000" />
+      <workItem from="1732534858866" duration="10626000" />
+      <workItem from="1732718131097" duration="2113000" />
     </task>
     <task id="LOCAL-00001" summary="A commit after finishing the project but yet tested it.">
       <option name="closed" value="true" />
@@ -428,7 +429,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732534880305</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="finished testing all commands except TAKE_SCREENSHOT which fails due to python modules and interpreter issues">
+      <option name="closed" value="true" />
+      <created>1732541806949</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1732541806949</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -467,14 +476,15 @@
     <MESSAGE value="finished pull" />
     <MESSAGE value="fixed all but photo related" />
     <MESSAGE value="attempting to sync machines" />
-    <option name="LAST_COMMIT_MESSAGE" value="attempting to sync machines" />
+    <MESSAGE value="finished testing all commands except TAKE_SCREENSHOT which fails due to python modules and interpreter issues" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished testing all commands except TAKE_SCREENSHOT which fails due to python modules and interpreter issues" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SchoolCyber$client2__1_.coverage" NAME="client2 (1) Coverage Results" MODIFIED="1732479366867" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Homework-17.11.24" />
-    <SUITE FILE_PATH="coverage/SchoolCyber$server2__1_.coverage" NAME="server2 (1) Coverage Results" MODIFIED="1732541617796" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Homework-17.11.24" />
+    <SUITE FILE_PATH="coverage/SchoolCyber$server2__1_.coverage" NAME="server2 (1) Coverage Results" MODIFIED="1732719274173" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Homework-17.11.24" />
     <SUITE FILE_PATH="coverage/SchoolCyber$wordcount_small_solution.coverage" NAME="wordcount_small_solution Coverage Results" MODIFIED="1730567935834" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Homework-29.09.24" />
     <SUITE FILE_PATH="coverage/SchoolCyber$server2.coverage" NAME="server2 Coverage Results" MODIFIED="1732433474925" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ Homework-17.11.24" />
     <SUITE FILE_PATH="coverage/SchoolCyber$string2_solution.coverage" NAME="string2_solution Coverage Results" MODIFIED="1729977992176" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Homework-15.09.24" />
-    <SUITE FILE_PATH="coverage/SchoolCyber$client2.coverage" NAME="client2 Coverage Results" MODIFIED="1732541619625" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Homework-17.11.24" />
+    <SUITE FILE_PATH="coverage/SchoolCyber$client2.coverage" NAME="client2 Coverage Results" MODIFIED="1732719277681" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Homework-17.11.24" />
   </component>
 </project>

@@ -1,5 +1,5 @@
 # Imports
-import socket
+from socket import socket
 
 # Fixed variables
 LENGTH_FIELD_SIZE: int = 4

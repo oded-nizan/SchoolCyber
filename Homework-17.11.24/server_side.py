@@ -1,6 +1,6 @@
 # Imports
 import socket
-import protocol2
+from communications_protocol import PORT, ACKNOWLEDGMENT, check_cmd, get_msg, create_msg
 from glob import glob
 from os.path import isfile, isdir, getsize
 from os import remove
@@ -10,7 +10,7 @@ from pyautogui import screenshot
 
 # Fixed variables
 IP: str = '0.0.0.0'
-PHOTO_PATH: str = r'C:\Users\Oded\Pictures\Screenshots\screenshot.jpg'  # The path + filename where the screenshot at
+PHOTO_PATH: str = r'C:\Users\Oded\Pictures\Screenshots\screenshot.png'  # The path + filename where the screenshot at
 # the server should be saved
 
 
@@ -27,7 +27,7 @@ def check_client_request(cmd: str) -> tuple[bool, str, list[str]]:
         params: List of the cmd params (ex. ["c:\\cyber"])
     """
     # Use protocol.check_cmd first
-    valid_cmd_protocol: bool = protocol2.check_cmd(cmd)
+    valid_cmd_protocol: bool = check_cmd(cmd)
     index: int = cmd.find(' ')  # Get the index of the first appearance of the space character
     # If there are no spaces in the command that means there are no parameters therefore we'll check if there should
     # be any
@@ -137,10 +137,7 @@ def command_execute(param: str) -> str:
 def command_take_screenshot() -> str:
     # Take a screenshot, save it and return response based on its existence as a file
     image = screenshot()
-    print(type(image))
-    print(image)
     image.save(PHOTO_PATH)
-    print(isfile(PHOTO_PATH))
     return 'OK' if isfile(
         PHOTO_PATH) else f'Something went wrong while attempting to take a screenshot and save it to: {PHOTO_PATH}'
 
@@ -154,24 +151,24 @@ def command_send_photo() -> str:
 def send_photo(client_socket: socket) -> None:
     # Send the full photo after receiving acknowledgment
     # receive acknowledgment
-    valid, msg = protocol2.get_msg(client_socket)
-    if valid and msg == protocol2.ACKNOWLEDGMENT:
+    valid, msg = get_msg(client_socket)
+    if valid and msg == ACKNOWLEDGMENT:
         # Send the data itself to the client
         with open(PHOTO_PATH, 'rb') as f:
             client_socket.sendfile(f)
     else:
-        client_socket.send(protocol2.create_msg('Something went wrong'))
+        client_socket.send(create_msg('Something went wrong'))
 
 
 def main():
     # open socket with client
     server_socket: socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    server_socket.bind((IP, protocol2.PORT))
+    server_socket.bind((IP, PORT))
     server_socket.listen()
     print("Server is up and running")
     (client_socket, client_address) = server_socket.accept()
     print("Client connected")
-    connection_msg: bytes = protocol2.create_msg('Server is connected')
+    connection_msg: bytes = create_msg('Server is connected')
     client_socket.send(connection_msg)
 
     # (1)
@@ -179,7 +176,7 @@ def main():
     # handle requests until user asks to exit
     while True:
         # Check if protocol is OK, e.g. length field OK
-        valid_protocol, cmd = protocol2.get_msg(client_socket)
+        valid_protocol, cmd = get_msg(client_socket)
         if valid_protocol:
             # Check if params are good, e.g. correct number of params, file name exists
             valid_cmd, command, params = check_client_request(cmd)
@@ -188,7 +185,7 @@ def main():
                 # prepare a response using "handle_client_request"
                 response: str = handle_client_request(command, params)
                 # add length field using "create_msg"
-                msg: bytes = protocol2.create_msg(response)
+                msg: bytes = create_msg(response)
                 # send to client
                 client_socket.send(msg)
                 if command == 'SEND_PHOTO':
@@ -201,7 +198,7 @@ def main():
                 # prepare proper error to client
                 response: str = 'Bad command or parameters'
                 # add length field using "create_msg"
-                msg: bytes = protocol2.create_msg(response)
+                msg: bytes = create_msg(response)
                 # send to client
                 client_socket.send(msg)
 
@@ -209,7 +206,7 @@ def main():
             # prepare proper error to client
             response: str = 'Packet not according to protocol'
             # add length field using "create_msg"
-            msg: bytes = protocol2.create_msg(response)
+            msg: bytes = create_msg(response)
             # send to client
             client_socket.send(msg)
 
